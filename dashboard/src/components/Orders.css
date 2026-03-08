@@ -1,0 +1,33 @@
+.orders-container {
+  padding: 30px 40px;
+  width: 100%;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.orders-table thead th {
+  text-align: left;
+  color: #666;
+  font-weight: 500;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.orders-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.orders-table td {
+  padding: 14px 0;
+  color: #333;
+}
+
+.no-orders {
+  padding: 40px;
+  color: #999;
+  font-size: 15px;
+}
