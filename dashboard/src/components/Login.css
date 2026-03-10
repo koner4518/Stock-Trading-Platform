@@ -81,8 +81,9 @@
 }
 
 .signup-redirect a {
-  color: #1976d2;
+  color: #387ed1;
   text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
 }
 

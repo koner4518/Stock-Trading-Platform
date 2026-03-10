@@ -91,7 +91,7 @@ function Login() {
           </button>
 
           <p className="signup-redirect">
-            Don't have an account? <Link to="/signup">Signup</Link>
+            Don't have an account?&nbsp;&nbsp; <Link to="/signup">Signup</Link>
           </p>
         </form>
 
