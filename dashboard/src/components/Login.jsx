@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import "./Login.css";
 
 function Login() {
-
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -33,27 +32,24 @@ function Login() {
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/login`,
-        form
+        form,
       );
 
       const token = res.data.token;
       const user = res.data.user;
 
       if (token) {
+        login(token); // useAuth hook handles localStorage
 
-        login(token);   // useAuth hook handles localStorage
-        
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setSuccess(res.data.message || "Login successful");
 
         setTimeout(() => {
           navigate("/allHoldings");
         }, 800);
-
       } else {
         setError("Login failed. Token not received.");
       }
-
     } catch (err) {
       console.log(err);
       setError(err.response?.data?.message || "Login failed");
@@ -66,7 +62,6 @@ function Login() {
         <h2>Login</h2>
 
         <form onSubmit={handleSubmit}>
-
           <div className="input-group">
             <label>Email</label>
             <input
@@ -95,6 +90,9 @@ function Login() {
             Login
           </button>
 
+          <p className="signup-redirect">
+            Don't have an account? <Link to="/signup">Signup</Link>
+          </p>
         </form>
 
         {error && <p className="error-text">{error}</p>}
